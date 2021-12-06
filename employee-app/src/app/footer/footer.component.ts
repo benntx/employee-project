@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SOCIALICONS } from '../listSocialIcons';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit(): void {
   }
-
+  copyright = "BenTzion Fis";
+  copyrightYear = " 2021";
+  socialButtons = SOCIALICONS;
 }

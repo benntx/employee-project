@@ -1,1 +1,10 @@
-<p>footer works!</p>
+<footer class="footer">
+    <div>
+      <p>Copyright &copy; {{copyrightYear}} {{copyright}}</p>
+    </div>
+    <div>
+      <span *ngFor="let button of socialButtons">
+          <a href="{{ button.URL }}" target="_blank"><img src="{{ button.IconSrc }}" alt="{{ button.name }}"/></a>
+      </span> 
+    </div>
+  </footer>
