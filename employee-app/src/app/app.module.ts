@@ -7,6 +7,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
     EmployeeComponent,
     FooterComponent,
     EmployeeDetailComponent,
+    MessagesComponent,
 
   ],
   imports: [

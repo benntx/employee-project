@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
-import { EMPLOYEES } from '../list-employees';
+// import { EMPLOYEES } from '../list-employees';
+import { EmployeeService } from '../employee.service';
+
+import { MessageService } from '../messages.service';
+
+
 
 
 @Component({
@@ -11,49 +16,25 @@ import { EMPLOYEES } from '../list-employees';
 
 export class EmployeeComponent implements OnInit {
 
-  employees = EMPLOYEES;
-  selectedEmployee?: Employee;
-  onSelect(employee :Employee): void {
-    this.selectedEmployee = employee;
-  }
+  employees: Employee[] = [];
 
-  constructor() { }
+  selectedEmployee?: Employee;
+  onSelect(employee: Employee): void {
+
+    this.selectedEmployee = employee;
+    
+    this.messageService.add(`Employee Component: Selected employee id=${employee.id}`);
+    
+    }
+
+    constructor(private employeeService: EmployeeService, private messageService: MessageService) {}
+  getEmployees(): void {
+    //this.employees = this.employeeService.getEmployees();
+    this.employeeService.getEmployees()
+    .subscribe(employees => this.employees = employees);
+    }
 
   ngOnInit(): void {
+    this.getEmployees();
   }
-    // employee: Employee = {
-    //   id: 318033743,
-    //   fname: 'Alex',
-    //   lname: 'Gorbachov',
-    //   dateofbirth: "1/2/2001",
-    //   salary: "5000",
-    //   email: "asf@hmail.com"
-    // };
-
-    // employee1: Employee = {
-    //   id: 256325632,
-    //   fname: 'yossi',
-    //   lname: 'Cohen',
-    //   dateofbirth: "1/2/2001",
-    //   salary: "5000",
-    //   email: "asf@hmail.com"
-    // };
-    
-    // employee2: Employee = {
-    //   id: 256325632,
-    //   fname: 'yossi',
-    //   lname: 'Cohen',
-    //   dateofbirth: "1/2/2001",
-    //   salary: "5000",
-    //   email: "asf@hmail.com"
-    // };  
-
-    // employee3: Employee = {
-    //   id: 256325632,
-    //   fname: 'yossi',
-    //   lname: 'Cohen',
-    //   dateofbirth: "1/2/2001",
-    //   salary: "5000",
-    //   email: "asf@hmail.com" 
-    // };  
 }
