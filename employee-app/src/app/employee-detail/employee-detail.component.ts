@@ -12,6 +12,7 @@ import { EmployeeService } from '../employee.service';
 export class EmployeeDetailComponent implements OnInit {
 
   @Input() employee?: Employee;
+  status : boolean = false;
 
   constructor(
 
@@ -40,5 +41,8 @@ export class EmployeeDetailComponent implements OnInit {
           this.employeeService.updateEmployee(this.employee).subscribe(() => this.goBack());
           }
         }
+      openSendMail(): void {
+        this.status = !this.status;
+      }  
 
 }

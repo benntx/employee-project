@@ -1,29 +1,29 @@
 <div *ngIf="employee">
-
+  <div id="mainDiv">
     <h2>{{employee.fname | uppercase}} {{employee.lname | uppercase}} Details</h2>
+    <br>
     <div><span>id: </span>{{employee.id}}</div>
-  <div>
-    <label for="employee-fname">Employee first name: </label>
+    <label for="employee-fname">Employee First name: </label>
     <input id="employee-fname" [(ngModel)]="employee.fname" placeholder="fname">
     <br>
-    <label for="employee-lname">Employee last name: </label>
+    <label for="employee-lname">Employee Last name: </label>
     <input id="employee-lname" [(ngModel)]="employee.lname" placeholder="lname">
     <br>
-    <label for="employee-dateofbirth">Employee dateofbirth: </label>
+    <label for="employee-dateofbirth">Employee Date of Birth: </label>
     <input disabled id="employee-dateofbirth" [(ngModel)]="employee.dateofbirth" placeholder="dateofbirth">
     <br>
-    <label for="employee-salary">Employee salary: </label>
+    <label for="employee-salary">Employee Salary: </label>
     <input id="employee-salary" [(ngModel)]="employee.salary" placeholder="salary">
     <br>
-    <label for="employee-email">Employee email: </label>
+    <label for="employee-email">Employee Email: </label>
     <input id="employee-email" [(ngModel)]="employee.email" placeholder="email">
-    
+    <button (click)="openSendMail()" id="sendEmail">Send email</button>
   </div>
-
-  </div>
-  <br>
-  <button (click)="goBack()">Go back</button> 
-  <button (click)="save()">save</button>
-  <br>
-  <br>
-  <br>
+</div>
+<br>
+<app-send-email [employee]="employee" *ngIf="status"></app-send-email>
+<button (click)="goBack()">Go back</button> 
+<button (click)="save()">save</button>
+<br>
+<br>
+<br>

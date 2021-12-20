@@ -1,4 +1,4 @@
-input{
+input, textarea{
     padding: .5rem;
 }
 #mainDiv{
@@ -25,7 +25,3 @@ button {
     color: #ccc;
     cursor: auto;
   }
-#sendEmail {
-  padding-left: 6px;
-  padding-right: 6px;
-}

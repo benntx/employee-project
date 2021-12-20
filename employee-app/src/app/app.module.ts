@@ -12,6 +12,7 @@ import { EmployeeRoutingComponent } from './employee-routing/employee-routing.co
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { SendEmailComponent } from './send-email/send-email.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { InMemoryDataService } from './in-memory-data.service';
     MessagesComponent,
     DashboardComponent,
     EmployeeRoutingComponent,
+    SendEmailComponent,
 
   ],
   imports: [
