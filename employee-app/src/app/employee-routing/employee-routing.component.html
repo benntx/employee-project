@@ -1,4 +1,18 @@
 <h2>My Staff</h2>
+
+<div>
+
+    <label for="new-employee">Employee First Name: </label>
+    <input id="new-employee" #employeeName />
+    
+    <!-- (click) passes input value to add() and then clears the input -->
+    
+    <button class="add-button" (click)="add(employeeName.value); employeeName.value=''">
+    Add Employee
+    </button>
+    <br>
+    <br>
+</div>
 <div class="wrapper">
 <div>
 <table class="employees">

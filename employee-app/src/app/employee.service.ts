@@ -53,5 +53,29 @@ export class EmployeeService {
         httpOptions = {
           headers: new HttpHeaders({ 'Content-Type': 'application/json' })
           };  
+          addEmployee(employee: Employee): Observable<Employee> {
+            return this.http.post<Employee>(this.employeesUrl, employee,this.httpOptions).pipe(tap((newEmployee: Employee) => 
+              this.log(`added Employee w/id=${newEmployee.id}`)),
+            catchError(this.handleError<Employee>('addEmployee'))
+            );
+            }
+            deleteEmployee(id: number): Observable<Employee> {
+              const url = `${this.employeesUrl}/${id}`;
+              return this.http.delete<Employee>(url, this.httpOptions).pipe(tap(_ => this.log(`deleted Employee id=${id}`)),
+              catchError(this.handleError<Employee>('deleteEmployee'))
+              );
+              } 
+              searchEmployees(term: string): Observable<Employee[]> {
+                if (!term.trim()) {
+                // if not search term, return empty employee array.
+                return of([]);
+                }
+                return this.http.get<Employee[]>(`${this.employeesUrl}/?fname=${term}`).pipe(
+                tap(x => x.length ?
+                this.log(`found Employees matching "${term}"`) :
+                this.log(`no Employees matching "${term}"`)),
+                catchError(this.handleError<Employee[]>('searchEmployees', []))
+                );
+                } 
     constructor(private http: HttpClient, private messageService: MessageService) { }
 }

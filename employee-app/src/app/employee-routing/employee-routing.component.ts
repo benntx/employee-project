@@ -33,4 +33,14 @@ export class EmployeeRoutingComponent implements OnInit {
   ngOnInit(): void {
     this.getEmployees();
   }
+  add(fname: string): void {
+
+    fname = fname.trim();
+    if (!fname) { return; }
+    this.employeeService.addEmployee({ fname } as Employee).subscribe(employee => {
+      this.employees.push(employee);
+    });
+    
+    }
+  
 }

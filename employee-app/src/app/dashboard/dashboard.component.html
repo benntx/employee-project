@@ -2,3 +2,5 @@
 <div class="employees-menu">
 <a *ngFor="let employee of employees" routerLink="/detail/{{employee.id}}"> {{employee.fname}} {{employee.lname}} </a>
 </div>
+
+<app-employee-search></app-employee-search>

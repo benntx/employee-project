@@ -34,4 +34,10 @@ export class EmployeeComponent implements OnInit {
   ngOnInit(): void {
     this.getEmployees();
   }
+
+  delete(employee: Employee): void {
+
+    this.employees = this.employees.filter(h => h !== employee);
+    this.employeeService.deleteEmployee(employee.id).subscribe();
+    }
 }
